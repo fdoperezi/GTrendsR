@@ -257,6 +257,7 @@ as.zoo.gtrends <- function(x, ...) {
         enddates = seq(to=(Sys.Date() - as.POSIXlt(Sys.Date())$wday + 6),from=as.Date("2004-01-10",format="%Y-%m-%d"),by=7)
         trend <- data.frame(start=enddates-6, end=enddates, trend=rep(NA,num.weekly.trend))
         names(trend) = c("start","end","query")
+        #names(trend) = c("start","end",tolower(queryparams["query"]))
       } else if (dim(weeks)[2] > 1) {
         trend <- data.frame(start=as.Date(weeks[,1], format='%Y-%m-%d'),
                             end=as.Date(weeks[,2], format='%Y-%m-%d'),
